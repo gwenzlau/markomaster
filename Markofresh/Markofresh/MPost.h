@@ -16,7 +16,7 @@
 @property (nonatomic, retain) NSNumber * postID;
 @property (nonatomic, retain) id jsonURL;
 @property (nonatomic, retain) id htmlURL;
-@property (nonatomic, retain) NSString * bodyText;
+@property (nonatomic, retain) NSString * body;
 @property (nonatomic, retain) NSDate * createdAt;
 @property (nonatomic, retain) MUser *user;
 

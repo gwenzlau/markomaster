@@ -51,8 +51,7 @@
     [entityMapping addAttributeMappingsFromDictionary:@{
      @"id":             @"postID",
      @"url":            @"jsonURL",
-     @"body":           @"bodyText",
-//   @"public":         @"public",
+     @"body":           @"body",
      @"created_at":     @"createdAt"}];
     entityMapping.identificationAttributes = @[ @"postID" ];
     
@@ -62,15 +61,15 @@
     
     //
     RKObjectMapping *responseMapping = [RKObjectMapping mappingForClass:[MPost class]];
-    [responseMapping addAttributeMappingsFromArray:@[@"bodyText", @"postID", @"createdAt"]];
+    [responseMapping addAttributeMappingsFromArray:@[@"body"]];
     NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful); // Anything in 2xx
     RKResponseDescriptor *postDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping pathPattern:@"/posts" keyPath:@"/posts" statusCodes:statusCodes];
     
     RKObjectMapping *requestMapping = [RKObjectMapping requestMapping]; // objectClass == NSMutableDictionary
-    [requestMapping addAttributeMappingsFromArray:@[@"bodyText", @"postID", @"createdAt"]];
+    [requestMapping addAttributeMappingsFromArray:@[@"body"]];
     
-   // RKRequestDescriptor *requestDescriptor = [RKRequestDescriptor requestDescriptorWithMapping:requestMapping objectClass:[MPost class] rootKeyPath:@"posts"];
-    RKRequestDescriptor * requestDescriptor = [RKRequestDescriptor requestDescriptorWithMapping:[entityMapping inverseMapping] objectClass:[MPost class] rootKeyPath:@"posts"];
+    RKRequestDescriptor *requestDescriptor = [RKRequestDescriptor requestDescriptorWithMapping:requestMapping objectClass:[MPost class] rootKeyPath:@"posts"];
+  //  RKRequestDescriptor * requestDescriptor = [RKRequestDescriptor requestDescriptorWithMapping:[entityMapping inverseMapping] objectClass:[MPost class] rootKeyPath:@"posts"];
     [objectManager addRequestDescriptor:requestDescriptor];
     
     RKObjectManager *manager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"https://stormy-river-3647.herokuapp.com"]];

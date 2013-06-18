@@ -15,13 +15,13 @@
 @dynamic postID;
 @dynamic jsonURL;
 @dynamic htmlURL;
-@dynamic bodyText;
+@dynamic body;
 @dynamic createdAt;
 @dynamic user;
 
 - (NSString *)titleText
 {
-    return [self.bodyText length] ? self.bodyText : @"(untitled)";
+    return [self.body length] ? self.body : @"(untitled)";
 }
 
 - (NSString *)subtitleText

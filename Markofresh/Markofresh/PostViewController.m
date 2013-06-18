@@ -40,7 +40,7 @@
 -(void)saveChanges {
     RKManagedObjectStore *objectStore = [[RKObjectManager sharedManager] managedObjectStore];
     MPost *post = [NSEntityDescription insertNewObjectForEntityForName:@"Post" inManagedObjectContext:objectStore.mainQueueManagedObjectContext];
-    [post setBodyText:@"This is the body."];
+    [post setBody:@"This is the body."];
     
     [[RKObjectManager sharedManager] postObject:post path:@"/posts" parameters:nil success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
         NSLog(@"Success saving post");
