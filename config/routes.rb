@@ -1,4 +1,4 @@
-Marko::Application.routes.draw do
+Markomasterfresh::Application.routes.draw do
   get "users/show"
 
   resources :posts
