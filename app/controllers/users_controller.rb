@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 	
 	#commented out only for developmnet
 	#before_filter :authenticate_user!
-
+skip_before_filter  :verify_authenticity_token
 	respond_to :json, :xml
   def show
   	@user = User.find(params[:id])

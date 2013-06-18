@@ -7,6 +7,7 @@ gem 'rabl'
 gem 'faker'
 gem "paperclip", "~> 3.0"
 gem 'aws-sdk'
+gem 'newrelic_rpm'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
